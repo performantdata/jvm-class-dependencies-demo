@@ -1,0 +1,88 @@
+:root {
+  --form-color: hsla(210, 30%, 80%, 0.9);
+  --fieldset-border-color: hsl(0, 0%, 60%);
+
+  /* Colors for relationships. */
+  --superclass-color: hsl(0, 0%, 60%);
+  --interface-color: hsl(203, 100%, 50%);
+  --outer-color: hsl(160, 100%, 50%);
+
+  /* Colors for JVM types. */
+  --scala-specialization-color: hsl(30, 100%, 50%);
+  --inner-class-color: hsl(60, 80%, 50%);
+}
+html, body { margin: 0; padding: 0; overflow: hidden; }
+body {
+  background-color: black;
+  font-family: sans;
+}
+
+footer div {
+  color: white;
+  background-color: hsla(210, 100%, 0%, 0.7);
+  position: fixed;
+  bottom: 0;
+  font-size: 50%;
+}
+footer div.stats     { left: 0; }
+footer div.copyright { right: 0; }
+
+form#controls {
+  background-color: var(--form-color);
+  border: solid 1px;
+  border-radius: 0.2em;
+  width: 20em;
+  padding: 1ex;
+  position: fixed;
+  top: 1ex;
+  right: 1ex;
+  font-size: 70%;
+}
+form#controls fieldset {
+  margin-top: 1ex;
+  border: thin solid var(--fieldset-border-color);
+}
+
+form ul {
+  list-style-type: none;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+.links line {
+  stroke-opacity: 0.6;
+  stroke-width: 2;
+}
+.superclass line { stroke: var(--superclass-color); }
+.interface line  { stroke: var(--interface-color); }
+.outer line      { stroke: var(--outer-color); }
+
+.types circle {
+  fill: red;
+  r: 5px;
+  stroke: #fff;
+  stroke-width: 1.5px;
+
+  /* capture nearby events
+  pointer-events: all;
+  stroke: none;
+  stroke-width: 40px;
+   */
+}
+
+.types circle.inner-class          { fill: var(--inner-class-color); }
+.types circle.scala-specialization { fill: var(--scala-specialization-color); }
+
+form#controls li { padding-right: 0.3ex; border: 3px solid transparent; }
+form#controls li.superclass           { border-color: var(--superclass-color); }
+form#controls li.interface            { border-color: var(--interface-color); }
+form#controls li.outer                { border-color: var(--outer-color); }
+form#controls li.inner-class          { border-color: var(--inner-class-color); }
+form#controls li.scala-specialization { border-color: var(--scala-specialization-color); }

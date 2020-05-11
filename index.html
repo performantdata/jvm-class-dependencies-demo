@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JVM class dependency browser</title>
+  <link rel="stylesheet" href="css/default.css" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <main>
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow-licensing" viewBox="0 -5 10 10" refX="15" refY="-0.5" markerWidth="6" markerHeight="6" orient="auto">
+          <path fill="#1f77b4" d="M0,-5L10,0L0,5"></path>
+        </marker>
+        <marker id="arrow-suit" viewBox="0 -5 10 10" refX="15" refY="-0.5" markerWidth="6" markerHeight="6" orient="auto">
+          <path fill="#ff7f0e" d="M0,-5L10,0L0,5"></path>
+        </marker>
+        <marker id="arrow-resolved" viewBox="0 -5 10 10" refX="15" refY="-0.5" markerWidth="6" markerHeight="6" orient="auto">
+          <path fill="#2ca02c" d="M0,-5L10,0L0,5"></path>
+        </marker>
+      </defs>
+      <g class="links outer"></g>
+      <g class="links interface"></g>
+      <g class="links superclass"></g>
+      <g class="types"></g>
+    </svg>
+
+    <form id="controls">
+      <fieldset>
+        <legend>display nodes…</legend>
+        <ul>
+          <li class="inner-class">
+            <input id="inner" type="checkbox" checked disabled>
+            <label for="inner">inner classes</label>
+          </li>
+          <li class="scala-specialization">
+            <input id="specialized" type="checkbox" checked disabled>
+            <label for="specialized">Scala specializations</label>
+          </li>
+          <li>
+            <input id="companion" type="checkbox" checked disabled>
+            <label for="companion">Scala companion objects</label>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>display links…</legend>
+        <ul>
+          <li class="outer">
+            <input id="outer" type="checkbox" checked>
+            <label for="outer">outer class</label>
+          </li>
+          <li class="interface">
+            <input id="interface" type="checkbox" checked>
+            <label for="interface">interfaces</label>
+          </li>
+          <li class="superclass">
+            <input id="superclass" type="checkbox" checked>
+            <label for="superclass">superclass</label>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer>
+    <div class="stats"></div>
+    <div class="copyright">
+      Copyright © 2020 Performant Data LLC
+    </div>
+  </footer>
+</body>
+</html>
